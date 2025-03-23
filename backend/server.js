@@ -5,6 +5,8 @@ const morgan = require("morgan")
 const cors = require('cors');
 const cookieParser = require("cookie-parser");
 const connectToDb = require("./config/db")
+const authRoutes = require('./routes/auth')
+
 
 const app = express();
 app.use(helmet());
@@ -15,6 +17,7 @@ app.use(cors({
     origin:"*",
     credentials:true,
 }));
+app.use("/app/auth",authRoutes);
 
 connectToDb(process.env.MONGODB_URL)
 

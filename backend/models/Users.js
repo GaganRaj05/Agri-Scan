@@ -23,6 +23,10 @@ const userSchema = new mongoose.Schema({
         type:Date,
         required:true,
     },
+    farm_type:{
+        type:String,
+        required:true
+    },
     state: {
         type:String,
         required:true,
@@ -37,6 +41,6 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-const User = mongoose.model(userSchema);
+const User = mongoose.model("users",userSchema);
 
 module.exports = User;
